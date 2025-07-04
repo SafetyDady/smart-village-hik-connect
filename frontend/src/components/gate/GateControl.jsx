@@ -26,7 +26,7 @@ import { Badge } from '@/components/ui/badge.jsx'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select.jsx'
 import { Textarea } from '@/components/ui/textarea.jsx'
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const GateControl = () => {
   const [gates, setGates] = useState([]);

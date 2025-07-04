@@ -13,7 +13,7 @@ app = create_app()
 if __name__ == '__main__':
     # Development server configuration
     debug_mode = os.getenv('FLASK_DEBUG', 'True').lower() == 'true'
-    port = int(os.getenv('FLASK_PORT', 5000))
+    port = int(os.getenv('PORT', os.getenv('FLASK_PORT', 5000)))
     host = os.getenv('FLASK_HOST', '0.0.0.0')
     
     print(f"🚀 Starting Smart Village HIK Connect Backend Server")

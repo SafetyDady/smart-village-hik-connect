@@ -22,7 +22,7 @@ const GateIcon = (props) => (
 )
 import { Badge } from '@/components/ui/badge.jsx'
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const Dashboard = () => {
   const [cameras, setCameras] = useState([]);

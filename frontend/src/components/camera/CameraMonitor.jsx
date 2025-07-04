@@ -7,7 +7,7 @@ import { Separator } from '@/components/ui/separator.jsx'
 import { CameraIcon, PlusCircleIcon, RefreshCcwIcon, EyeIcon } from 'lucide-react'
 import { Badge } from '@/components/ui/badge.jsx'
 
-const API_URL = 'http://localhost:5000/api';
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const CameraMonitor = () => {
   const [cameras, setCameras] = useState([]);

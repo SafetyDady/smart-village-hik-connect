@@ -5,7 +5,6 @@ Smart Village HIK Connect - Flask Application Factory
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
-from flask_jwt_extended import JWTManager
 import os
 from dotenv import load_dotenv
 
@@ -14,7 +13,6 @@ load_dotenv()
 
 # Initialize extensions
 db = SQLAlchemy()
-jwt = JWTManager()
 
 def create_app(config_name=None):
     """Create and configure Flask application"""
@@ -23,7 +21,6 @@ def create_app(config_name=None):
     
     # Configuration
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret-key-change-in-production')
-    app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY', 'jwt-secret-key-change-in-production')
     
     # Database configuration
     database_uri = os.getenv('DATABASE_URI', 'sqlite:///smart_village.db')
@@ -37,7 +34,6 @@ def create_app(config_name=None):
     
     # Initialize extensions with app
     db.init_app(app)
-    jwt.init_app(app)
     CORS(app, origins=['*'])  # Allow all origins for development
     
     # Register blueprints
